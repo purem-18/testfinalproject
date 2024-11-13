@@ -1,11 +1,12 @@
 import React from 'react'
-import lemon_logo from "../assets/images/lemon_colored.png"
+import lemon_logo from "../../assets/images/sm-logo.png"
+import "./footer.css"
 
 const Footer = () => {
   return (
-    <div>
-      <img src={lemon_logo} alt="" width="20px" />
-      <section>
+    <footer>
+      <img src={lemon_logo} alt="" height="100rem" />
+      <div className='doormatnav'>
         <h3>Doormat Navigation</h3>
         <ul>
             <li><a href="./">Home</a></li>
@@ -15,17 +16,17 @@ const Footer = () => {
             <li><a href="./online_order">Order Online</a></li>
             <li><a href="./login">Login</a></li>
         </ul>
-      </section>
-      <section>
+      </div>
+      <div className='contact'>
         <h3>Contact</h3>
         <p>B-16, Safdarjung Enclave, New Delhi 110010</p>
         <p>Phone number: 986352776</p>
         <p>email: moirang.work@gmail.com</p>
-      </section>
+      </div>
       <section>
         social media links add here
       </section>
-    </div>
+    </footer>
   )
 }
 
