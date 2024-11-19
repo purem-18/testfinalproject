@@ -1,0 +1,72 @@
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .menu-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .menu-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .menu-item-content {
+    padding: 15px;
+  }
+  
+  .menu-title{
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 3em;
+  }
+  .menu-section-title{
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 2.3em;
+  }
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  
+  .menu-item-name {
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 1.6em;
+    margin: 0;
+  }
+  
+  .menu-item-price {
+    font-weight: bold;
+    color: #495E57;
+  }
+  
+  .menu-item-description {
+    margin-bottom: 10px;
+    color: #555;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.1em;
+  }
+  
+  .menu-item-cooking {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+  }
