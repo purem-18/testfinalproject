@@ -32,17 +32,16 @@
 }
 
 /* ***********Common properties/classes etc.****************/
-main button{
+
+
+
+.neon-button {
     width: 200px;
     height: 60px;
     border-radius: 30px;
     background-color: #F4CE14;
     font-weight: 700;
     font-family: 'Karla', sans-serif;
-}
-
-
-.neon-button {
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 }
@@ -150,7 +149,6 @@ main button{
     display: flex;
     flex-direction: column;
     /* background-color: aquamarine; */
-    /* margin: 0.5rem; */
     margin: 1rem;
     width: 100%; /*temp*/
     min-width: 200px;

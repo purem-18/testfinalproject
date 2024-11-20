@@ -2,75 +2,89 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgba(73, 94, 87,0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #F4CE14;
   }
-  
+
   .table-booking h2 {
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 40px;
     text-align: center;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
   }
-  
+
   .table-booking form {
+    font-family: 'Karla', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .booking-details, .personal-details {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  
+
+  .booking-details>h3{
+    text-decoration: underline solid #495E57;
+  }
+
   .personal-details.greyed-out {
     opacity: 0.5;
     pointer-events: none;
   }
-  
+
   .table-booking input, .table-booking select, .table-booking textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
+
   .seats-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
   }
-  
+
   .seats-instructions {
     flex: 1;
     margin-right: 20px;
   }
-  
+
   .seats-instructions p {
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+
   .seats-instructions ul {
     list-style-type: none;
+    
     padding-left: 0;
   }
-  
+
   .seats-instructions li {
     margin-bottom: 5px;
     font-size: 0.9em;
-    color: #555;
+    color: #F4CE14;
   }
-  
+
   .seats-input {
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
-  
+
   .seats-input input {
     width: 50px;
     text-align: center;
     margin: 0 10px;
   }
-  
+
   .seats-input button {
     width: 30px;
     height: 30px;
@@ -81,35 +95,36 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  
+
   .terms {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-  
+
   .terms label {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  
+
   .terms input[type="checkbox"] {
     width: 20px;
     height: 20px;
   }
-  
+
   .table-booking button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    /* padding: 10px 20px; */
+    align-self: center;
   }
-  
+
   .table-booking button[type="submit"]:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+  }
+
+  .table-booking button[type="submit"]:disabled:hover{
+    box-shadow:
+      none
   }

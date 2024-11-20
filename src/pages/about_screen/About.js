@@ -1,6 +1,5 @@
 import React from 'react';
 import ownerImage from '../../assets/images/Mario and Adrian A.jpg';
-import backgroundTexture from '../../assets/images/restaurant.jpg'; // Add this new import
 import './about.css';
 
 const About = () => {
@@ -15,12 +14,14 @@ const About = () => {
             and classic cocktails in a lively but casual environment. The restaurant
             features a locally-sourced menu with daily specials, bringing the flavors
             of the Mediterranean to the heart of Chicago.
-            
+          </p>
+          <p>
             Our story began with two Italian brothers, Mario and Adrian, who moved
             to Chicago to pursue their shared dream of owning a restaurant. Little
             Lemon was born out of their passion for food, family recipes, and warm
             hospitality.
-            
+          </p>
+          <p>
             Today, Little Lemon is a beloved part of the Chicago food scene, known
             for its delightful dishes, refreshing cocktails, and the warm, inviting
             atmosphere that makes every guest feel like family.
