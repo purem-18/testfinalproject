@@ -1,4 +1,4 @@
-# Little Lemon Restaurant website with table reservation feature demo
+# Project Little Lemon Restaurant website with table reservation feature demo
 
 clone the git repo or download the zip file
 
