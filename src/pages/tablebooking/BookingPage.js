@@ -1,11 +1,13 @@
 import React, { useReducer, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./bookingpage.css";
 import { fetchAPI, submitAPI, store } from "./api";
 
 const Main = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    store(); // Initialize LocalStorage on component mount
+    store();
   }, []);
 
   const initializeTimes = async () => {
@@ -31,14 +33,27 @@ const Main = () => {
     });
   }, []);
 
+  const submitForm = async (formData) => {
+    const result = await submitAPI(formData);
+    if (result) {
+      navigate("/booking-confirmed");
+    } else {
+      alert("Submission failed. This time slot may no longer be available.");
+    }
+  };
+
   return (
     <div className="page-background">
-      <BookingForm availableTimes={availableTimes} dispatch={dispatch} />
+      <BookingForm
+        availableTimes={availableTimes}
+        dispatch={dispatch}
+        submitForm={submitForm}
+      />
     </div>
   );
 };
 
-const BookingForm = ({ availableTimes, dispatch }) => {
+const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
   const [bookingDetails, setBookingDetails] = React.useState({
     seats: 0,
     date: "",
@@ -82,21 +97,8 @@ const BookingForm = ({ availableTimes, dispatch }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isBookingDetailsFilled() && agreeTerms) {
-      console.log("Booking submitted:", {
-        ...bookingDetails,
-        ...personalDetails,
-      });
-      const result = await submitAPI({ ...bookingDetails, ...personalDetails });
-      if (result) {
-        alert("Booking request successfully submitted!");
-        // Reset form or navigate to confirmation page
-      } else {
-        alert("Submission failed. This time slot may no longer be available.");
-      }
-      // Refresh available times after submission
-      fetchAPI(bookingDetails.date).then((times) => {
-        dispatch({ type: "UPDATE_TIMES", payload: times });
-      });
+      const formData = { ...bookingDetails, ...personalDetails };
+      submitForm(formData);
     } else {
       alert(
         "Please fill all required fields and agree to the terms and conditions."

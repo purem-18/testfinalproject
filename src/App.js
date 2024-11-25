@@ -9,6 +9,7 @@ import BookingForm from './pages/tablebooking/BookingPage';
 import About from './pages/about_screen/About';
 import Menu from './pages/menu/Menu';
 import OnlineOrder from './pages/onlineorder/OnlineOrder';
+import ConfirmedBooking from './pages/tablebooking/ConfirmedBooking';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/reservations" element={<BookingForm />} />
           <Route path="/online_order" element={<OnlineOrder />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/booking-confirmed" element={<ConfirmedBooking/>} />
         </Routes>
         <Footer />
       </div>
