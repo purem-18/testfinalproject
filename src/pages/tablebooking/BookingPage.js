@@ -3,6 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import "./bookingpage.css";
 import { fetchAPI, submitAPI, store } from "./api";
 
+//------------for test-------------
+export const initializeTimes = async () => {
+  const today = new Date().toISOString().split("T")[0];
+  const times = await fetchAPI(today);
+  console.log("Fetched times:", times);
+  return times;
+};
+
+export const updateTimes = (state, action) => {
+  if (action.type === "UPDATE_TIMES") {
+    console.log("Updating times:", action.payload);
+    return action.payload;
+  }
+  return state;
+};
+//----------------------------------
 const Main = () => {
   const navigate = useNavigate();
 
@@ -10,20 +26,21 @@ const Main = () => {
     store();
   }, []);
 
-  const initializeTimes = async () => {
-    const today = new Date().toISOString().split("T")[0];
-    const times = await fetchAPI(today);
-    console.log("Fetched times:", times);
-    return times;
-  };
+  // const initializeTimes = async () => {
+  //   const today = new Date().toISOString().split("T")[0];
+  //   const times = await fetchAPI(today);
+  //   console.log("Fetched times:", times);
+  //   return times;
+  // };
 
-  const updateTimes = (state, action) => {
-    if (action.type === "UPDATE_TIMES") {
-      console.log("Updating times:", action.payload);
-      return action.payload;
-    }
-    return state;
-  };
+
+  // const updateTimes = (state, action) => {
+  //   if (action.type === "UPDATE_TIMES") {
+  //     console.log("Updating times:", action.payload);
+  //     return action.payload;
+  //   }
+  //   return state;
+  // };
 
   const [availableTimes, dispatch] = useReducer(updateTimes, []);
 
