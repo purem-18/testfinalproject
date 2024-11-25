@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
-import logo from "../../assets/images/Logo.svg"
-import "./header.css"
+import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import logo from "../../assets/images/Logo.svg";
+import "./header.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +13,14 @@ const Header = () => {
 
   return (
     <header>
-      <img src={logo} alt="Logo" />
-      <button className="menu-toggle" onClick={toggleMenu}>
+      <img src={logo} alt="Little Lemon Logo" aria-label="Little Lemon Logo" />
+      <button
+        className="menu-toggle"
+        onClick={toggleMenu}
+        aria-expanded={isMenuOpen}
+        aria-controls="navigation-menu"
+        aria-label="Toggle navigation menu"
+      >
         <div className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`}>
           <span></span>
           <span></span>
@@ -22,7 +28,7 @@ const Header = () => {
           <span></span>
         </div>
       </button>
-      <nav className={isMenuOpen ? 'open' : ''}>
+      <nav id="navigation-menu" className={isMenuOpen ? 'open' : ''}>
         <ul>
           <li><NavLink className={`shine-on-hover ${location.pathname === '/' ? 'active-shine' : ''}`} to="/">Home</NavLink></li>
           <li><NavLink className={`shine-on-hover ${location.pathname === '/about' ? 'active-shine' : ''}`} to="/about">About</NavLink></li>
@@ -33,7 +39,7 @@ const Header = () => {
         </ul>
       </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

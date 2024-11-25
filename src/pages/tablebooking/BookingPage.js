@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./bookingpage.css";
 import { fetchAPI, submitAPI, store } from "./api";
 
-//------------for test-------------
 export const initializeTimes = async () => {
   const today = new Date().toISOString().split("T")[0];
   const times = await fetchAPI(today);
@@ -18,29 +17,13 @@ export const updateTimes = (state, action) => {
   }
   return state;
 };
-//----------------------------------
+
 const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     store();
   }, []);
-
-  // const initializeTimes = async () => {
-  //   const today = new Date().toISOString().split("T")[0];
-  //   const times = await fetchAPI(today);
-  //   console.log("Fetched times:", times);
-  //   return times;
-  // };
-
-
-  // const updateTimes = (state, action) => {
-  //   if (action.type === "UPDATE_TIMES") {
-  //     console.log("Updating times:", action.payload);
-  //     return action.payload;
-  //   }
-  //   return state;
-  // };
 
   const [availableTimes, dispatch] = useReducer(updateTimes, []);
 
@@ -60,13 +43,13 @@ const Main = () => {
   };
 
   return (
-    <div className="page-background">
+    <main className="page-background">
       <BookingForm
         availableTimes={availableTimes}
         dispatch={dispatch}
         submitForm={submitForm}
       />
-    </div>
+    </main>
   );
 };
 
@@ -124,44 +107,43 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
   };
 
   return (
-    <div className="table-booking">
-      <h2>Table Reservation</h2>
+    <section className="table-booking">
+      <h1>Table Reservation</h1>
       <form id="bookingform" onSubmit={handleSubmit}>
-        <div className="booking-details">
-          <h3>Booking Details</h3>
+        <fieldset className="booking-details">
+          <legend>Booking Details</legend>
           <div className="seats-section">
-            <>
-              <p>Enter number of seats:</p>
-              <ul>
-                <li>Minimum: 1 seat</li>
-              </ul>
-            </>
+            <label htmlFor="seats">Enter number of seats:</label>
+            <p>Minimum: 1 seat</p>
             <div className="seats-input">
               <input
                 type="number"
+                id="seats"
                 name="seats"
                 value={bookingDetails.seats}
                 onChange={handleBookingChange}
-                min="0"
+                min="1"
                 required
                 aria-label="Number of seats"
               />
             </div>
           </div>
+          <label htmlFor="date">Reservation date:</label>
           <input
             type="date"
+            id="date"
             name="date"
             value={bookingDetails.date}
             onChange={handleBookingChange}
             required
-            aria-label="Reservation date"
           />
+          <label htmlFor="time">Reservation time:</label>
           <select
+            id="time"
             name="time"
             value={bookingDetails.time}
             onChange={handleBookingChange}
             required
-            aria-label="Reservation time"
           >
             <option value="">Select a time</option>
             {Array.isArray(availableTimes) &&
@@ -171,78 +153,85 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                 </option>
               ))}
           </select>
+          <label htmlFor="occasion">Occasion:</label>
           <textarea
+            id="occasion"
             name="occasion"
             value={bookingDetails.occasion}
             onChange={handleBookingChange}
             placeholder="Occasion (Birthday, Anniversary etc.) *Required"
-            aria-label="Occasion"
+            required
           />
+          <label htmlFor="specialRequests">Special Requests:</label>
           <textarea
+            id="specialRequests"
             name="specialRequests"
             value={bookingDetails.specialRequests}
             onChange={handleBookingChange}
             placeholder="Special Requests (Optional)"
-            aria-label="Special requests"
           />
-        </div>
+        </fieldset>
 
-        <div
+        <fieldset
           className={`personal-details ${
             isBookingDetailsFilled() ? "" : "greyed-out"
           }`}
         >
-          <h3>Personal Details</h3>
+          <legend>Personal Details</legend>
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="text"
+            id="firstName"
             name="firstName"
             value={personalDetails.firstName}
             onChange={handlePersonalChange}
             placeholder="First Name"
             required
             disabled={!isBookingDetailsFilled()}
-            aria-label="First name"
           />
+          <label htmlFor="lastName">Last Name:</label>
           <input
             type="text"
+            id="lastName"
             name="lastName"
             value={personalDetails.lastName}
             onChange={handlePersonalChange}
             placeholder="Last Name"
             required
             disabled={!isBookingDetailsFilled()}
-            aria-label="Last name"
           />
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
+            id="email"
             name="email"
             value={personalDetails.email}
             onChange={handlePersonalChange}
             placeholder="Email"
             required
             disabled={!isBookingDetailsFilled()}
-            aria-label="Email"
           />
+          <label htmlFor="contactNumber">Contact Number:</label>
           <input
             type="tel"
+            id="contactNumber"
             name="contactNumber"
             value={personalDetails.contactNumber}
             onChange={handlePersonalChange}
             placeholder="Contact Number"
             required
             disabled={!isBookingDetailsFilled()}
-            aria-label="Contact number"
           />
-        </div>
+        </fieldset>
 
         <div className="terms">
-          <label>
+          <label htmlFor="agreeTerms">
             <input
               type="checkbox"
+              id="agreeTerms"
               checked={agreeTerms}
               onChange={(e) => setAgreeTerms(e.target.checked)}
               disabled={!isBookingDetailsFilled()}
-              aria-label="Agree to terms and conditions"
             />
             I agree with the <Link to="/terms">terms and conditions</Link> and{" "}
             <Link to="/privacy">privacy policy</Link>
@@ -258,7 +247,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           Book Table
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 
