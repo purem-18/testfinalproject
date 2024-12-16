@@ -78,3 +78,9 @@ input {
   color: #FFFFFF;
   text-decoration: underline;
 }
+
+@media (max-width:520px){
+  .login-container {
+    width: 100%;
+  }
+}

@@ -100,6 +100,10 @@
 }
 
 @media (max-width: 520px) {
+  .footer{
+    margin-top: 0;
+    border-radius: 0;
+  }
   .footer-content {
     gap: 0.1rem;
     grid-template-columns: 1fr;

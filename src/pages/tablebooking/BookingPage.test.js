@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Main, { initializeTimes, updateTimes } from './BookingPage';
 import { fetchAPI, submitAPI } from './api';
-import { MemoryRouter } from 'react-router-dom'; // Import MemoryRouter
+import { MemoryRouter } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 // Mock API functions
@@ -78,7 +78,7 @@ describe('BookingPage', () => {
       </MemoryRouter>
     );
   
-    // Fill out the form
+    // Form filling
     fireEvent.change(screen.getByLabelText('Number of seats'), { target: { value: '2' } });
     fireEvent.change(screen.getByLabelText('Reservation date'), { target: { value: '2023-12-31' } });
     fireEvent.change(screen.getByLabelText('Reservation time'), { target: { value: '18:00' } });
@@ -98,7 +98,7 @@ describe('BookingPage', () => {
     fireEvent.click(submitButton);
   
     // Assertions
-    await screen.findByText(/booking confirmed/i); // Ensure navigation or success text appears
+    await screen.findByText(/booking confirmed/i); 
     expect(submitAPI).toHaveBeenCalledTimes(1);
     expect(submitAPI).toHaveBeenCalledWith({
       seats: 2,

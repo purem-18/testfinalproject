@@ -155,6 +155,7 @@
     transition: transform 0.3s ease;
 }
 
+.weeks-special-menu-card section:hover,
 .weeks-special-menu-card section:hover{
     transform: translateY(-5px);
 }
@@ -166,6 +167,8 @@
     display: block;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
+    /* width: 264px;
+    height: 184px; */
     /* background-color: cyan; */
 }
 .weeks-special-menu-card>section>.menu-card-textbox{
@@ -174,6 +177,7 @@
     background-color: rgba(128,128,128,0.5);
     border: 1px solid black;
     border-top: 0;
+    width: 100%;
     /* background-color: aqua; */
 }
 
@@ -191,5 +195,16 @@
   }
   .weeks-special-menu-card{
     flex-direction: column;
+    background-color: #495E57;
+    border-radius: 30px;
   }
+.weeks-special-menu-card section{
+    display: flex;
+    flex-direction: column;
+    /* background-color: aquamarine; */
+    margin: 1rem;
+    width: 100%; /*temp*/
+    min-width: 200px;
+    transition: transform 0.3s ease;
+}
 }

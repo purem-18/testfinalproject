@@ -57,7 +57,7 @@ const Main = () => {
           </header>
           <div className='weeks-special-menu-card'>
             <section aria-labelledby="greek-salad-title">
-              <img src={greeksalad} alt="Greek salad" width="264px" height="184px" />
+              <img src={greeksalad} alt="Greek salad" />
               <div className="menu-card-textbox">
                 <h3 id="greek-salad-title">Greek Salad</h3>
                 <p>The famous Greek salad of crispy lettuce, peppers, olives, and our Chicago-style feta cheese, garnished with crunchy garlic and rosemary croutons.</p>

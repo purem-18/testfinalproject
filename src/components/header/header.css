@@ -165,6 +165,7 @@ nav.open {
     header {
         display: flex;
         justify-content: space-between;
+        padding: 0 2vw 1rem 2vw;
     }
     nav {
         position: absolute;
